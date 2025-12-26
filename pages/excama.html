@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Excama cortes</title>
+  <link rel="stylesheet" href="../Excama/Excama.css" />
+  <link rel="icon" href="icons/web-app-manifest-192x192.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ======= CABEÇALHO / PERFIL ======= -->
+  <header>
+    <div class="profile-container">
+
+      <!-- Imagem de perfil da barbearia -->
+      <img src="../Excama/assets/logo-excama.jpeg" alt="Perfil da Barbearia" class="profile-image" />
+
+      <!-- Informações da barbearia -->
+      <div class="info">
+        <h1>Excama cortes</h1>
+        <p class="endereco">Loteamento prolar N°893 Rua do Cruzeiro</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/excama_cortes" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://chat.whatsapp.com/FI7RHEkQnDULhDTgDh0CDf?mode=ac_t" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+
+      <nav class="menu-lateral">
+
+        <!-- Wrapper da busca para alinhar campo e botão lado a lado -->
+        <div class="busca-wrapper">
+          <!-- Campo de pesquisa (inicia oculto) -->
+          <input type="text" class="input-busca" placeholder="Buscar..." />
+
+          <!-- Botão da lupa -->
+          <button class="btn-icone btn-lupa" title="Buscar">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+        <!-- Botão do filtro -->
+        <button class="btn-icone btn-filtro" title="Filtrar">
+          <i class="fas fa-sliders-h"></i>
+        </button>
+
+        <!-- Botão de localização -->
+        <button class="btn-icone btn-localizacao" title="Localização">
+          <i class="fas fa-map-marker-alt"></i>
+        </button>
+
+      </nav>
+
+      <!-- Menu de opções do filtro (inicia oculto) -->
+      <div class="filtro-menu hidden">
+        <button class="filtro-opcao" data-filtro="mais-barato">Corte mais barato</button>
+        <button class="filtro-opcao" data-filtro="mais-caro">Corte mais caro</button>
+        <button class="filtro-opcao" data-filtro="mais-avaliado">Mais avaliado</button>
+      </div>
+
+      <!-- Container do mapa (inicia oculto) -->
+      <div id="mapa-container" class="mapa-container hidden">
+        <!-- Iframe do Google Maps mostrando a localização da barbearia -->
+        <iframe
+          id="iframe-mapa"
+          width="100%"
+          height="200"
+          frameborder="0"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+
+        <!-- Botão que abre o Google Maps em nova aba com rota para a barbearia -->
+        <a
+          href="https://maps.app.goo.gl/Vz9Ui7VAPAPVtEyn8"
+          target="_blank"
+          rel="noopener"
+          id="btn-rota"
+          class="btn-rota"
+        >
+          Ver rota no Google Maps
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ======= GALERIA DE CORTES ======= -->
+  <section class="galeria">
+    <h2>Galeria de Cortes</h2>
+    <div class="fotos-cortes">
+      <div class="corte destaque" data-nome="Corte Clássico" data-preco="30" data-avaliacao="4">
+        <img src="../Excama/assets/corte 01.jpeg" alt="Corte Clássico" />
+        <p class="nome-corte">Corte Clássico</p>
+        <p class="preco-corte">R$ 30,00</p>
+        <div class="avaliacao">
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">☆</span>
+        </div>
+      </div>
+
+      <div class="corte destaque" data-nome="Corte Moderno" data-preco="40" data-avaliacao="5">
+        <img src="../Excama/assets/corte 02.jpeg" alt="Corte Moderno" />
+        <p class="nome-corte">Corte Moderno</p>
+        <p class="preco-corte">R$ 40,00</p>
+        <div class="avaliacao">
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+        </div>
+      </div>
+
+      <div class="corte destaque" data-nome="Corte Retrô" data-preco="35" data-avaliacao="3">
+        <img src="../Excama/assets/corte 03.jpeg" alt="Corte Retrô" />
+        <p class="nome-corte">Corte Retrô</p>
+        <p class="preco-corte">R$ 35,00</p>
+        <div class="avaliacao">
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">☆</span>
+          <span class="estrela">☆</span>
+        </div>
+      </div>
+
+      <!-- Mais cortes repetidos -->
+      <div class="corte destaque" data-nome="Corte Retrô 2" data-preco="30" data-avaliacao="2">
+        <img src="../Excama/assets/corte 04.jpeg" alt="Corte Retrô 2" />
+        <p class="nome-corte">Corte Retrô 2</p>
+        <p class="preco-corte">R$ 30,00</p>
+        <div class="avaliacao">
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">☆</span>
+          <span class="estrela">☆</span>
+          <span class="estrela">☆</span>
+        </div>
+      </div>
+
+      <div class="corte destaque" data-nome="Corte Retrô 3" data-preco="20" data-avaliacao="1">
+        <img src="../Excama/assets/Seu-corte.png" alt="Corte Retrô 3" />
+        <p class="nome-corte">Corte Retrô 3</p>
+        <p class="preco-corte">R$ 20,00</p>
+        <div class="avaliacao">
+          <span class="estrela">★</span>
+          <span class="estrela">☆</span>
+          <span class="estrela">☆</span>
+          <span class="estrela">☆</span>
+          <span class="estrela">☆</span>
+        </div>
+      </div>
+
+      <div class="corte destaque" data-nome="Corte Retrô 4" data-preco="50" data-avaliacao="5">
+        <img src="../Excama/assets/Seu-corte.png" alt="Corte Retrô 4" />
+        <p class="nome-corte">Corte Retrô 4</p>
+        <p class="preco-corte">R$ 50,00</p>
+        <div class="avaliacao">
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= AGENDAMENTO DE HORÁRIO ======= -->
+  <section>
+    <div class="agendamento">
+      <h2>Agende seu horário</h2>
+      <form id="form-agendamento">
+  <label for="data">Data:</label>
+  <input type="date" id="data" name="data" required />
+
+  <label for="hora">Hora:</label>
+  <input type="time" id="hora" name="hora" required />
+
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+
+  <label for="telefone">Telefone:</label>
+  <input type="tel" id="telefone" name="telefone" placeholder="(81) 98765-4321" maxlength="15" required />
+
+  <label for="corte">Selecione o corte desejado:</label>
+  <select id="corte" name="corte" required>
+    <option value="">-- Escolha o corte --</option>
+    <option value="degrade">Degradê</option>
+    <option value="social">Social</option>
+    <option value="maquina">Máquina</option>
+    <option value="navalhado">Navalhado</option>
+    <option value="americano">Americano</option>
+  </select>
+
+  <button type="submit">Agendar</button>
+</form>
+
+    </div>
+  </section>
+
+  <!-- ======= RODAPÉ ======= -->
+  <footer class="rodape">
+    <p>© 2025 Lucas Pedro - InovaStack</p>
+  </footer>
+
+  <!-- Script externo -->
+  <script src="../Excama/Excama.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,344 @@
+ <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#contato">Agende</a></li>
+        </ul>
+
+<section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <h2>Encontre seu profissional</h2>
+        <p>Agende agora e tenha a experiência completa na Barbearia Estilo Fino</p>
+        <a href="#contato" class="btn">Agendar agora</a>
+      </div>
+      <div class="hero-img">
+        <img src="" alt="Barbeiro" />
+      </div>
+    </div>
+  </section>
+
+
+<section id="servicos" class="servicos">
+    <div class="container">
+      <h2>Serviços</h2>
+      <ul class="servico-lista">
+        <li>Corte Tradicional</li>
+        <li>Barba com Toalha Quente</li>
+        <li>Sobrancelha na Navalha</li>
+        <li>Hidratação e Cuidados</li>
+      </ul>
+    </div>
+  </section>
+
+ <section class="depoimentos">
+    <div class="container">
+      <h2>O que dizem nossos clientes</h2>
+      <blockquote>"Melhor barbearia da cidade! Atendimento top e corte impecável!"</blockquote>
+      <cite>- João Martins</cite>
+    </div>
+  </section>
+
+
+<section id="contato" class="contato">
+    <div class="container">
+      <h2>Agende seu horário</h2>
+      <form action="https://api.whatsapp.com/send" method="get" target="_blank">
+        <input type="text" name="nome" placeholder="Seu nome" required>
+        <input type="tel" name="telefone" placeholder="Seu telefone" required>
+        <select name="servico">
+          <option value="Corte Tradicional">Corte Tradicional</option>
+          <option value="Barba">Barba</option>
+          <option value="Sobrancelha">Sobrancelha</option>
+        </select>
+        <textarea name="mensagem" placeholder="Mensagem (opcional)"></textarea>
+        <button type="submit" class="btn">Agendar via WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+ <section id="galeria" class="galeria">
+    <div class="container">
+      <h2>Galeria de Cortes</h2>
+      <div class="fotos">
+        <img src="img/corte1.jpg" alt="Corte 1">
+        <img src="img/corte2.jpg" alt="Corte 2">
+        <img src="img/corte3.jpg" alt="Corte 3">
+        <img src="img/corte4.jpg" alt="Corte 4">
+      </div>
+    </div>
+  </section
+
+  <button class="btn-login" type="button" aria-label="Login">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#f0c040" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+  </svg>
+  <span>Login</span>
+
+  <footer>
+    <div class="container footer-container">
+      <p class="rodape-nome">2025 Lucas Pedro - InovaStack</p>
+      <div class="redes-minimal">
+        <a href="https://www.instagram.com/seuusuario" target="_blank" class="btn-minimal" aria-label="Instagram">
+          <img src="assets/logo-insta.jpg" alt="Instagram" />
+        </a>
+        <a href="https://wa.me/5599999999999" target="_blank" class="btn-minimal" aria-label="WhatsApp">
+          <img src="assets/logo-whats.png" alt="WhatsApp" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Inovastack</title>
+  <link rel="stylesheet" href="login/login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="usuario">Nome de usuário</label>
+      <input type="text" id="usuario" name="usuario" placeholder="Digite seu nome de usuário" required>
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+<script src="login/login.js" defer></script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barbearia Luxo</title>
+  <link rel="stylesheet" href="perfis/perfil.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ======= CABEÇALHO / PERFIL ======= -->
+  <header>
+    <div class="profile-container">
+
+      <!-- Imagem de perfil da barbearia -->
+      <img src="assets/perfil-1.jpg.png" alt="Perfil da Barbearia" class="profile-image" />
+
+     
+      <!-- Informações da barbearia -->
+      <div class="info">
+        <h1>Barbearia Luxo</h1>
+        <p class="endereco">Recanto carpina, rua E, n°20 - Lagoa do carro</p>
+        <div class="social-links">
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+
+      <nav class="menu-lateral">
+
+        <!-- Wrapper da busca para alinhar campo e botão lado a lado -->
+        <div class="busca-wrapper">
+          <!-- Campo de pesquisa (inicia oculto) -->
+          <input type="text" class="input-busca" placeholder="Buscar..." />
+
+          <!-- Botão da lupa -->
+          <button class="btn-icone btn-lupa" title="Buscar">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+        <!-- Botão do filtro -->
+        <button class="btn-icone btn-filtro" title="Filtrar">
+          <i class="fas fa-sliders-h"></i>
+        </button>
+
+        <!-- Botão de localização -->
+        <button class="btn-icone btn-localizacao" title="Localização">
+          <i class="fas fa-map-marker-alt"></i>
+        </button>
+
+      </nav>
+
+      <!-- Menu de opções do filtro (inicia oculto) -->
+      <div class="filtro-menu hidden">
+        <button class="filtro-opcao" data-filtro="mais-barato">Corte mais barato</button>
+        <button class="filtro-opcao" data-filtro="mais-caro">Corte mais caro</button>
+        <button class="filtro-opcao" data-filtro="mais-avaliado">Mais avaliado</button>
+      </div>
+
+      <!-- Container do mapa (inicia oculto) -->
+      <div id="mapa-container" class="mapa-container hidden">
+        <!-- Iframe do Google Maps mostrando a localização da barbearia -->
+        <iframe
+          id="iframe-mapa"
+          width="100%"
+          height="200"
+          frameborder="0"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+
+        <!-- Botão que abre o Google Maps em nova aba com rota para a barbearia -->
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=Lagoa+do+Carro,+PE,+55820-000"
+          target="_blank"
+          rel="noopener"
+          id="btn-rota"
+          class="btn-rota"
+        >
+          Ver rota no Google Maps
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ======= GALERIA DE CORTES ======= -->
+  <section class="galeria">
+    <h2>Galeria de Cortes</h2>
+    <div class="fotos-cortes">
+      <div class="corte destaque" data-nome="Corte Clássico" data-preco="30" data-avaliacao="4">
+        <img src="assets/corte-01.png" alt="Corte Clássico" />
+        <p class="nome-corte">Corte Clássico</p>
+        <p class="preco-corte">R$ 30,00</p>
+        <div class="avaliacao">
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">☆</span>
+        </div>
+      </div>
+
+      <div class="corte destaque" data-nome="Corte Moderno" data-preco="40" data-avaliacao="5">
+        <img src="assets/corte-01.png" alt="Corte Moderno" />
+        <p class="nome-corte">Corte Moderno</p>
+        <p class="preco-corte">R$ 40,00</p>
+        <div class="avaliacao">
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+        </div>
+      </div>
+
+      <div class="corte destaque" data-nome="Corte Retrô" data-preco="35" data-avaliacao="3">
+        <img src="assets/corte-01.png" alt="Corte Retrô" />
+        <p class="nome-corte">Corte Retrô</p>
+        <p class="preco-corte">R$ 35,00</p>
+        <div class="avaliacao">
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">☆</span>
+          <span class="estrela">☆</span>
+        </div>
+      </div>
+
+      <!-- Mais cortes repetidos -->
+      <div class="corte destaque" data-nome="Corte Retrô 2" data-preco="30" data-avaliacao="2">
+        <img src="assets/corte-01.png" alt="Corte Retrô 2" />
+        <p class="nome-corte">Corte Retrô 2</p>
+        <p class="preco-corte">R$ 30,00</p>
+        <div class="avaliacao">
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">☆</span>
+          <span class="estrela">☆</span>
+          <span class="estrela">☆</span>
+        </div>
+      </div>
+
+      <div class="corte destaque" data-nome="Corte Retrô 3" data-preco="20" data-avaliacao="1">
+        <img src="assets/corte-01.png" alt="Corte Retrô 3" />
+        <p class="nome-corte">Corte Retrô 3</p>
+        <p class="preco-corte">R$ 20,00</p>
+        <div class="avaliacao">
+          <span class="estrela">★</span>
+          <span class="estrela">☆</span>
+          <span class="estrela">☆</span>
+          <span class="estrela">☆</span>
+          <span class="estrela">☆</span>
+        </div>
+      </div>
+
+      <div class="corte destaque" data-nome="Corte Retrô 4" data-preco="50" data-avaliacao="5">
+        <img src="assets/corte-01.png" alt="Corte Retrô 4" />
+        <p class="nome-corte">Corte Retrô 4</p>
+        <p class="preco-corte">R$ 50,00</p>
+        <div class="avaliacao">
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+          <span class="estrela">★</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= AGENDAMENTO DE HORÁRIO ======= -->
+  <section>
+     <div class="agendamento">
+      <h2>Agende seu horário</h2>
+      <form>
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required />
+
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required />
+
+        <label for="telefone">Telefone:</label>
+<input type="tel" id="telefone" name="telefone" placeholder="(81) 98765-4321" maxlength="15" required>
+
+        <label for="corte">Selecione o corte desejado:</label>
+        <select id="corte" name="corte" required>
+          <option value="">-- Escolha o corte --</option>
+          <option value="degrade">Degradê</option>
+          <option value="social">Social</option>
+          <option value="maquina">Máquina</option>
+          <option value="navalhado">Navalhado</option>
+          <option value="americano">Americano</option>
+        </select>
+
+        <button type="submit">Agendar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ======= RODAPÉ ======= -->
+  <footer class="rodape">
+    <p>© 2025 Lucas Pedro - InovaStack</p>
+  </footer>
+
+  <!-- Script externo -->
+  <script src="perfis/perfil.js"></script>
+</body>
+</html>
+
+
+
+
+
+

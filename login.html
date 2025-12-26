@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login e Cadastro - Inovastack</title>
+  <link rel="icon" href="icons/web-app-manifest-192x192.png">
+
+  <!-- Link para o CSS externo -->
+  <link rel="stylesheet" href="../login/login.css" />
+
+  <!-- Ícones (Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Script JS -->
+  <script src="../login/login.js" defer></script>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Abas para alternar entre login e cadastro -->
+    <div class="tabs">
+      <button id="tab-login" class="active" type="button">Login</button>
+      <button id="tab-cadastro" type="button">Cadastro</button>
+
+      <!-- Botão ADM -->
+      <a href="../pages/Admin.html" class="adm-btn">
+        <i class="fas fa-user-shield"></i> ADM
+      </a>
+    </div>
+
+    <!-- Formulário de Login -->
+    <form id="form-login" class="active">
+      <label for="email-login">E-mail</label>
+      <input type="email" id="email-login" name="email" placeholder="Digite seu e-mail" required />
+
+      <label for="senha-login">Senha</label>
+      <input type="password" id="senha-login" name="senha" placeholder="Digite sua senha" required />
+
+      <button type="submit" class="submit-btn">Entrar</button>
+    </form>
+
+    <!-- Formulário de Cadastro -->
+    <form id="form-cadastro">
+      <label for="usuario-cadastro">Nome de usuário</label>
+      <input type="text" id="usuario-cadastro" name="usuario" placeholder="Digite seu nome de usuário" required />
+
+      <label for="email-cadastro">E-mail</label>
+      <input type="email" id="email-cadastro" name="email" placeholder="Digite seu e-mail" required />
+
+      <label for="senha-cadastro">Senha</label>
+      <input type="password" id="senha-cadastro" name="senha" placeholder="Digite sua senha" required />
+
+      <button type="submit" class="submit-btn">Cadastrar</button>
+    </form>
+
+  </div>
+</body>
+</html>
+
+
+
+
+

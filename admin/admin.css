@@ -1,0 +1,114 @@
+/* Estilo geral da página */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url('assets/fundo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Container do login */
+#loginSection {
+  background: #1e1e1e;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+  width: 320px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Título */
+#loginSection h1 {
+  margin-bottom: 25px;
+  color: #d4af37;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+  padding: 14px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #2b2b2b;
+  color: #eee;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  background-color: #3a3a3a;
+  box-shadow: 0 0 8px #d4af37;
+}
+
+/* Botão */
+button {
+  padding: 14px 0;
+  background-color: #d4af37;
+  border: none;
+  border-radius: 8px;
+  color: #121212;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: #b8932e;
+}
+
+/* ===== Responsividade para telas pequenas ===== */
+@media (max-width: 480px) {
+  #loginSection {
+    width: 95%;
+    padding: 60px 30px;
+    min-height: auto;
+    border-radius: 16px;
+  }
+
+  #loginSection h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    padding: 22px 20px;
+    font-size: 1.6rem;
+  }
+
+  button {
+    padding: 22px 0;
+    font-size: 1.8rem;
+  }
+}
+
+
+
+
+

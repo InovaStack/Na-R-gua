@@ -1,0 +1,24 @@
+{
+  "name": "na-regua",
+  "version": "1.1.0",
+  "description": "Plataforma de agendamento para barbearias",
+  "main": "index.html",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "netlify deploy --prod"
+  },
+  "keywords": [
+    "barbearia",
+    "agendamento",
+    "pwa"
+  ],
+  "author": "Lucas Pedro - InovaStack",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}

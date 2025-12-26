@@ -1,0 +1,361 @@
+/* Importa fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap');
+
+/* === ESTILOS GERAIS === */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: url('../assets/fundo header.jpg.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Container principal do login/cadastro */
+.container {
+  background-color: #1a1a1a;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Título do formulário */
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #d4af37;
+}
+
+/* === ABAS LOGIN / CADASTRO === */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+  gap: 20px;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 10px 18px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tabs button:hover {
+  color: #d4af37;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.5);
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+}
+
+.tabs button.active {
+  color: #d4af37;
+  border-bottom: 2px solid #d4af37;
+}
+
+/* === FORMULÁRIOS === */
+form {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Formulário ativo (mostrado) */
+form.active {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+label {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* Campos de input */
+input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #0f0f0f;
+  color: #fff;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #d4af37;
+}
+
+input:hover {
+  border-color: #d4af37;
+  background-color: #1a1a1a;
+}
+
+/* Botão de envio */
+button.submit-btn {
+  margin-top: 24px;
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #d4af37;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+button.submit-btn:hover {
+  background-color: #d4af37;
+  color: #0d0d0d;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  transform: translateY(-1px);
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 28px;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .tabs {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .tabs button {
+    font-size: 16px;
+    padding: 8px 14px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  input {
+    padding: 9px 10px;
+  }
+
+  button.submit-btn {
+    padding: 10px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  .container {
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tabs button {
+    font-size: 15px;
+    padding: 8px 12px;
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  button.submit-btn {
+    font-size: 14px;
+  }
+}
+
+#btnVoltar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid #d4af37; /* borda dourada */
+  color: #d4af37;
+  border-radius: 50%; /* botão redondo */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  box-shadow: none; /* sem sombras fortes */
+}
+
+#btnVoltar:hover {
+  background-color: rgba(212, 175, 55, 0.15); /* leve brilho dourado */
+  color: #b38b00; /* dourado mais escuro no hover */
+  border-color: #b38b00;
+}
+
+#btnVoltar svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+/* Estilos gerais */
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #111;
+  color: #eee;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #222;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Abas de navegação */
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 10px;
+}
+
+.tabs button {
+  background-color: #333;
+  color: #eee;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.tabs button.active,
+.tabs button:hover {
+  background-color: #d4af37;
+  color: #111;
+}
+
+/* Botão ADM */
+.adm-btn {
+  background-color: #333;
+  color: #eee;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.adm-btn:hover {
+  background-color: #d4af37;
+  color: #111;
+}
+
+.adm-btn i {
+  font-size: 15px;
+}
+
+
+/* Formulários */
+form {
+  display: none;
+  flex-direction: column;
+}
+
+form.active {
+  display: flex;
+}
+
+label {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+input {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background-color: #111;
+  color: #eee;
+}
+
+input:focus {
+  outline: none;
+  border-color: gold;
+}
+
+/* Botões */
+.submit-btn {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: gold;
+  color: #111;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #e6c300;
+}
+
+
+

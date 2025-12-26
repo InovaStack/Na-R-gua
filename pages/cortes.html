@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Relatório de Cortes</title>
+<link rel="icon" href="icons/web-app-manifest-192x192.png">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #2b2b2b;
+    color: #f0f0f0;
+  }
+  header {
+    background-color: #333;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #bfa135;
+  }
+  header h1 {
+    color: #bfa135;
+    font-size: 1.8em;
+    margin: 0;
+  }
+  /* Botão Voltar */
+  .btn-voltar {
+    background-color: transparent;
+    border: 2px solid #bfa135;
+    color: #bfa135;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .btn-voltar:hover {
+    background-color: #bfa135;
+    color: #2b2b2b;
+  }
+  main {
+    padding: 30px;
+  }
+  .info-box {
+    background-color: #3a3a3a;
+    border-left: 5px solid #bfa135;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(191, 161, 53, 0.25);
+    text-align: center;
+  }
+  .info-box h2 {
+    color: #bfa135;
+    margin-bottom: 10px;
+  }
+  .info-box p {
+    color: #ccc;
+    font-size: 1.2em;
+  }
+
+  /* ===== Responsividade para telas pequenas ===== */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px 15px;
+  }
+
+  header h1 {
+    font-size: 1.4em;
+  }
+
+  .btn-voltar {
+    align-self: stretch;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 20px 15px;
+  }
+
+  .info-box {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Relatório de Cortes do Mês</h1>
+  <a href="painel.html" class="btn-voltar">Voltar</a>
+</header>
+
+<main>
+  <div class="info-box" id="totalCortesMes">
+    <h2>Total de Cortes no Mês</h2>
+    <p>Carregando...</p>
+  </div>
+  
+  <div class="info-box" id="cortesSemana">
+    <h2>Cortes na Semana Atual</h2>
+    <p>Carregando...</p>
+  </div>
+</main>
+
+<script>
+  // Dados simulados de cortes agendados (YYYY-MM-DD)
+  const cortesMarcados = [
+    { nome: "João Silva", corte: "Degradê", data: "2025-07-02" },
+    { nome: "Maria Souza", corte: "Navalhado", data: "2025-07-03" },
+    { nome: "Carlos Lima", corte: "Social", data: "2025-07-05" },
+    { nome: "Ana Paula", corte: "Degradê", data: "2025-07-07" },
+    { nome: "Pedro Santos", corte: "Degradê", data: "2025-07-10" },
+    { nome: "Lucas Pedro", corte: "Social", data: "2025-07-15" },
+    { nome: "Bruna Maia", corte: "Navalhado", data: "2025-07-20" },
+    { nome: "Fernando Lima", corte: "Degradê", data: "2025-07-21" }
+  ];
+
+  // Configurar filtro do mês
+  const mesAnoFiltro = "2025-07";
+
+  // Função para calcular a semana (segunda a domingo) da data atual
+  function getWeekRange(date) {
+    const current = new Date(date);
+    const day = current.getDay(); // 0=Domingo, 1=Segunda...
+    const diffToMonday = (day === 0 ? 6 : day - 1); // quantos dias para segunda
+    const monday = new Date(current);
+    monday.setDate(current.getDate() - diffToMonday);
+    const sunday = new Date(monday);
+    sunday.setDate(monday.getDate() + 6);
+    return { monday, sunday };
+  }
+
+  // Função para verificar se data está dentro do intervalo semana atual
+  function isDateInRange(dateStr, startDate, endDate) {
+    const d = new Date(dateStr);
+    return d >= startDate && d <= endDate;
+  }
+
+  // Filtra cortes do mês
+  const cortesDoMes = cortesMarcados.filter(corte =>
+    corte.data.startsWith(mesAnoFiltro)
+  );
+
+  // Total de cortes no mês
+  const totalCortesMes = cortesDoMes.length;
+
+  // Data de hoje (para exemplo fixo, pode usar new Date())
+  const hoje = new Date("2025-07-22"); // data fixa para exemplo
+  // Para usar data atual real, use: const hoje = new Date();
+
+  // Obtem intervalo da semana atual (segunda a domingo)
+  const { monday, sunday } = getWeekRange(hoje);
+
+  // Filtra cortes que caem na semana atual
+  const cortesSemanaAtual = cortesDoMes.filter(corte =>
+    isDateInRange(corte.data, monday, sunday)
+  );
+
+  // Contar tipos de corte na semana atual
+  const frequenciaSemana = {};
+  cortesSemanaAtual.forEach(corte => {
+    frequenciaSemana[corte.corte] = (frequenciaSemana[corte.corte] || 0) + 1;
+  });
+
+  // Preparar texto com resumo da semana
+  let textoSemana = '';
+  if(cortesSemanaAtual.length === 0){
+    textoSemana = 'Nenhum corte registrado nesta semana.';
+  } else {
+    textoSemana = cortesSemanaAtual.length + ' cortes realizados nesta semana:<br>';
+    for(const tipo in frequenciaSemana){
+      textoSemana += `${tipo}: ${frequenciaSemana[tipo]}<br>`;
+    }
+  }
+
+  // Atualiza os textos no HTML
+  document.getElementById("totalCortesMes").querySelector("p").innerHTML = totalCortesMes;
+  document.getElementById("cortesSemana").querySelector("p").innerHTML = textoSemana;
+
+</script>
+
+</body>
+</html>
+
+

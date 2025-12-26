@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Relatório Geral - Barbearia</title>
+<link rel="icon" href="icons/web-app-manifest-192x192.png">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #2b2b2b;
+    color: #f0f0f0;
+  }
+  header {
+    background-color: #333;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #bfa135;
+  }
+  header h1 {
+    color: #bfa135;
+    font-size: 1.8em;
+    margin: 0;
+  }
+  /* Botão Voltar */
+  .btn-voltar {
+    background-color: transparent;
+    border: 2px solid #bfa135;
+    color: #bfa135;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .btn-voltar:hover {
+    background-color: #bfa135;
+    color: #2b2b2b;
+  }
+  main {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  .card {
+    background-color: #3a3a3a;
+    border-left: 5px solid #bfa135;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(191, 161, 53, 0.25);
+    text-align: center;
+  }
+  .card h2 {
+    color: #bfa135;
+    margin-bottom: 15px;
+  }
+  canvas {
+    background-color: #262626;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  @media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px 15px;
+  }
+
+  header h1 {
+    font-size: 1.4em;
+  }
+
+  .btn-voltar {
+    align-self: stretch;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .card {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Relatório Geral da Barbearia</h1>
+  <a href="painel.html" class="btn-voltar">Voltar</a>
+</header>
+
+<main>
+  <section class="card">
+    <h2>Clientes Alcançados</h2>
+    <canvas id="clientesChart" width="300" height="300"></canvas>
+  </section>
+
+  <section class="card">
+    <h2>Cortes Realizados</h2>
+    <canvas id="cortesChart" width="300" height="300"></canvas>
+  </section>
+
+  <section class="card">
+    <h2>Cortes Agendados</h2>
+    <canvas id="agendadosChart" width="300" height="300"></canvas>
+  </section>
+
+  <section class="card">
+    <h2>Faturamento Mensal (R$)</h2>
+    <canvas id="faturamentoChart" width="300" height="300"></canvas>
+  </section>
+</main>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Dados simulados (você pode adaptar para dados reais)
+  const dataClientes = {
+    labels: ['Clientes Novos', 'Clientes Recorrentes'],
+    datasets: [{
+      label: 'Clientes',
+      data: [120, 80],
+      backgroundColor: ['#bfa135', '#7a6e2b'],
+      hoverOffset: 20
+    }]
+  };
+
+  const dataCortes = {
+    labels: ['Degradê', 'Navalhado', 'Social', 'Outros'],
+    datasets: [{
+      label: 'Cortes',
+      data: [40, 25, 20, 15],
+      backgroundColor: ['#bfa135', '#d1b84e', '#8f8532', '#5e5a25'],
+      hoverOffset: 15
+    }]
+  };
+
+  const dataAgendados = {
+    labels: ['Hoje', 'Esta Semana', 'Este Mês'],
+    datasets: [{
+      label: 'Agendamentos',
+      data: [5, 20, 60],
+      backgroundColor: ['#bfa135', '#a1883c', '#7a6e2b'],
+      hoverOffset: 15
+    }]
+  };
+
+  const dataFaturamento = {
+    labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+    datasets: [{
+      label: 'R$ Faturamento',
+      data: [4000, 5500, 4800, 6200],
+      backgroundColor: '#bfa135'
+    }]
+  };
+
+  // Configuração dos gráficos
+  const configClientes = {
+    type: 'doughnut',
+    data: dataClientes,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#bfa135' } },
+        title: { display: false }
+      }
+    }
+  };
+
+  const configCortes = {
+    type: 'pie',
+    data: dataCortes,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#bfa135' } },
+        title: { display: false }
+      }
+    }
+  };
+
+  const configAgendados = {
+    type: 'doughnut',
+    data: dataAgendados,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#bfa135' } },
+        title: { display: false }
+      }
+    }
+  };
+
+  const configFaturamento = {
+    type: 'bar',
+    data: dataFaturamento,
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: '#bfa135' }
+        },
+        x: {
+          ticks: { color: '#bfa135' }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        title: { display: false }
+      }
+    }
+  };
+
+  // Renderização dos gráficos
+  window.onload = function () {
+    const ctxClientes = document.getElementById('clientesChart').getContext('2d');
+    new Chart(ctxClientes, configClientes);
+
+    const ctxCortes = document.getElementById('cortesChart').getContext('2d');
+    new Chart(ctxCortes, configCortes);
+
+    const ctxAgendados = document.getElementById('agendadosChart').getContext('2d');
+    new Chart(ctxAgendados, configAgendados);
+
+    const ctxFaturamento = document.getElementById('faturamentoChart').getContext('2d');
+    new Chart(ctxFaturamento, configFaturamento);
+  };
+</script>
+
+</body>
+</html>

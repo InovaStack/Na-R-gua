@@ -1,0 +1,115 @@
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+/* === CABEÇALHO === */
+header {
+  display: flex;
+  align-items: center;
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-bottom: 2px solid #d4af37;
+}
+
+.perfil img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #d4af37;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+header h1 {
+  color: #d4af37;
+  font-size: 1.8em;
+}
+
+/* === CONTEÚDO PRINCIPAL === */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  padding: 30px;
+}
+
+/* === CAIXAS === */
+.box {
+  background-color: #1a1a1a;
+  border-left: 5px solid #d4af37;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.box:hover {
+  transform: translateY(-3px);
+}
+
+.box h2 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.box p {
+  color: #ccc;
+}
+
+/* === LINKS === */
+a.box-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* === RESPONSIVO === */
+
+/* Tablets e menores: 1 coluna com padding reduzido */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 15px;
+  }
+}
+
+/* Celulares pequenos: cabeçalho empilhado e texto menor */
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .perfil img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  header h1 {
+    font-size: 1.4em;
+  }
+
+  .grid-container {
+    padding: 10px;
+  }
+
+  .box {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+}
+
+

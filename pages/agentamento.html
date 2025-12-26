@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Agendamentos</title>
+  <link rel="icon" href="../icons/web-app-manifest-192x192.png">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #2b2b2b;
+      color: #f0f0f0;
+    }
+
+    header {
+      background-color: #333;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #bfa135;
+    }
+
+    header h1 {
+      color: #bfa135;
+      font-size: 1.8em;
+      margin: 0;
+    }
+
+    /* Botão Voltar */
+    .btn-voltar {
+      background-color: transparent;
+      border: 2px solid #bfa135;
+      color: #bfa135;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-voltar:hover {
+      background-color: #bfa135;
+      color: #2b2b2b;
+    }
+
+    main {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .loading {
+      text-align: center;
+      color: #bfa135;
+      font-size: 1.2em;
+      padding: 40px;
+    }
+
+    .agendamento {
+      background-color: #3a3a3a;
+      border-left: 5px solid #bfa135;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(191, 161, 53, 0.25);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      user-select: none;
+    }
+
+    .agendamento h2 {
+      color: #bfa135;
+      margin-bottom: 10px;
+    }
+
+    .agendamento p {
+      color: #ccc;
+      margin: 5px 0;
+    }
+
+    .btn-apagar {
+      background-color: #b22222;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      margin-top: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-apagar:hover {
+      background-color: #7a0d0d;
+    }
+
+    .btn-apagar:disabled {
+      background-color: #555;
+      cursor: not-allowed;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #999;
+    }
+
+    .empty-state i {
+      font-size: 4em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 20px 15px;
+      }
+
+      header h1 {
+        font-size: 1.4em;
+      }
+
+      .btn-voltar {
+        align-self: stretch;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 1rem;
+      }
+
+      main {
+        padding: 20px 15px;
+        gap: 15px;
+      }
+
+      .agendamento {
+        padding: 15px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Agendamentos do Dia</h1>
+    <a href="painel.html" class="btn-voltar">Voltar</a>
+  </header>
+
+  <main id="lista">
+    <div class="loading">Carregando agendamentos...</div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const container = document.getElementById("lista");
+
+      async function carregarAgendamentos() {
+        try {
+          // Buscar agendamentos da API
+          const response = await fetch('/.netlify/functions/agendamentos', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error('Erro ao carregar agendamentos');
+          }
+
+          const data = await response.json();
+          renderAgendamentos(data.agendamentos || []);
+
+        } catch (error) {
+          console.error('Erro ao carregar agendamentos:', error);
+          container.innerHTML = `
+            <div class="empty-state">
+              <p>❌ Erro ao carregar agendamentos.</p>
+              <p>Tente recarregar a página.</p>
+            </div>
+          `;
+        }
+      }
+
+      function renderAgendamentos(agendamentos) {
+        container.innerHTML = "";
+
+        if (agendamentos.length === 0) {
+          container.innerHTML = `
+            <div class="empty-state">
+              <div>📅</div>
+              <p>Nenhum agendamento encontrado.</p>
+            </div>
+          `;
+          return;
+        }
+
+        agendamentos.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = "agendamento";
+          card.innerHTML = `
+            <h2>${item.nome}</h2>
+            <p><strong>Telefone:</strong> ${item.telefone}</p>
+            <p><strong>Corte:</strong> ${item.corte}</p>
+            <p><strong>Data:</strong> ${formatarData(item.data)}</p>
+            <p><strong>Hora:</strong> ${item.hora}</p>
+            <button class="btn-apagar" data-id="${item.id}">Apagar</button>
+          `;
+          container.appendChild(card);
+        });
+
+        // Adicionar evento para excluir agendamentos
+        document.querySelectorAll(".btn-apagar").forEach((btn) => {
+          btn.addEventListener("click", async () => {
+            const id = btn.dataset.id;
+            
+            if (!confirm("Deseja realmente excluir este agendamento?")) {
+              return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'Excluindo...';
+
+            try {
+              const response = await fetch('/.netlify/functions/agendamentos', {
+                method: 'DELETE',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: parseInt(id) })
+              });
+
+              const result = await response.json();
+
+              if (response.ok && result.sucesso) {
+                alert(result.mensagem || 'Agendamento removido com sucesso!');
+                carregarAgendamentos(); // Recarregar lista
+              } else {
+                alert(result.erro || 'Erro ao remover agendamento');
+                btn.disabled = false;
+                btn.textContent = 'Apagar';
+              }
+            } catch (error) {
+              console.error('Erro ao excluir:', error);
+              alert('Erro de conexão. Tente novamente.');
+              btn.disabled = false;
+              btn.textContent = 'Apagar';
+            }
+          });
+        });
+      }
+
+      function formatarData(dataISO) {
+        if (!dataISO) return 'Data não informada';
+        const data = new Date(dataISO + 'T00:00:00');
+        return data.toLocaleDateString('pt-BR');
+      }
+
+      // Carregar agendamentos ao iniciar
+      carregarAgendamentos();
+    });
+  </script>
+
+</body>
+</html>

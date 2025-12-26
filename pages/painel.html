@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Barbearia</title>
+  <link rel="stylesheet" href="../painel/painel.css">
+  <link rel="icon" href="icons/web-app-manifest-192x192.png">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <header>
+    <div class="perfil">
+      <img src="../Excama/assets/logo-excama.jpeg" alt="Foto de Perfil" />
+    </div>
+    <h1>Painel Administrativo</h1>
+  </header>
+
+  <main class="grid-container">
+   <a href="agentamento.html" target="_blank" class="box-link">
+  <section class="box">
+    <h2>Agendamentos</h2>
+  </section>
+</a>
+
+
+    <a href="relatório.html" target="_blank" class="box-link">
+  <section class="box">
+    <h2>Relatórios</h2>
+  
+  </section>
+</a>
+
+
+    <a href="cortes.html" target="_blank" class="box-link">
+  <section class="box">
+    <h2>Cortes</h2>
+    
+  </section>
+</a>
+
+
+    <section class="box">
+      <h2>avaliações</h2>
+    
+    </section>
+  </main>
+
+    <script src="/js/notify.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('✅ Service Worker registrado:', reg.scope))
+          .catch(err => console.error('❌ Erro no Service Worker:', err));
+      }
+    </script>
+    <script src="/js/notify.js"></script>
+</body>
+</html>
+
+
