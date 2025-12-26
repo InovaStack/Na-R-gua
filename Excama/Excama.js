@@ -12,11 +12,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     estrelas.forEach((estrela, i) => {
-      estrela.addEventListener("click", () => {
+      estrela.addEventListener("click", (e) => {
+        e.stopPropagation(); // Não abrir modal ao avaliar
         marcarEstrelas(estrelas, i + 1);
         localStorage.setItem(`avaliacao_${nomeCorte}`, i + 1);
       });
     });
+
+    // Abrir modal ao clicar no card de corte
+    corte.addEventListener("click", () => {
+      abrirModalAgendamento(nomeCorte);
+    });
+  });
+
+  function abrirModalAgendamento(nomeCorte) {
+    const modal = document.getElementById("modal-agendamento");
+    const selectCorte = document.getElementById("corte-selecionado");
+
+    modal.classList.remove("hidden");
+
+    if (selectCorte && nomeCorte) {
+      selectCorte.value = nomeCorte;
+    }
+  }
+
+  // Fechar Modal
+  const btnFecharModal = document.getElementById("fechar-modal");
+  const modalContainer = document.getElementById("modal-agendamento");
+
+  if (btnFecharModal) {
+    btnFecharModal.addEventListener("click", () => {
+      modalContainer.classList.add("hidden");
+    });
+  }
+
+  // Fechar ao clicar fora
+  window.addEventListener("click", (e) => {
+    if (e.target === modalContainer) {
+      modalContainer.classList.add("hidden");
+    }
   });
 
   function marcarEstrelas(estrelas, nota) {
@@ -134,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hora = formAgendamento.hora.value;
     const nome = formAgendamento.nome.value.trim();
     const telefone = formAgendamento.telefone.value.trim();
-    const corte = formAgendamento.corte.value;
+    const corte = formAgendamento.querySelector('#corte-selecionado').value;
 
     if (!nome) {
       alert("Por favor, preencha o seu nome.");
@@ -173,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok && result.sucesso) {
         alert(result.mensagem || "Agendamento realizado com sucesso!");
         formAgendamento.reset();
+        modalContainer.classList.add("hidden"); // Fechar modal após sucesso
       } else {
         alert(result.erro || "Erro ao realizar agendamento. Tente novamente.");
       }

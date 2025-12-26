@@ -163,38 +163,46 @@
     </div>
   </section>
 
-  <!-- ======= AGENDAMENTO DE HORÁRIO ======= -->
-  <section>
-    <div class="agendamento">
-      <h2>Agende seu horário</h2>
-      <form id="form-agendamento">
-        <label for="data">Data:</label>
-        <input type="date" id="data" name="data" required />
+  <!-- ======= MODAL DE AGENDAMENTO (Inicia oculto) ======= -->
+  <div id="modal-agendamento" class="modal-container hidden">
+    <div class="modal-content">
+      <button id="fechar-modal" class="btn-fechar">&times;</button>
+      <div class="agendamento">
+        <h2>Agende seu horário</h2>
+        <form id="form-agendamento">
+          <label for="data">Data:</label>
+          <input type="date" id="data" name="data" required />
 
-        <label for="hora">Hora:</label>
-        <input type="time" id="hora" name="hora" required />
+          <label for="hora">Hora:</label>
+          <input type="time" id="hora" name="hora" required />
 
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
 
-        <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" name="telefone" placeholder="(81) 98765-4321" maxlength="15" required />
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(81) 98765-4321" maxlength="15" required />
 
-        <label for="corte">Selecione o corte desejado:</label>
-        <select id="corte" name="corte" required>
-          <option value="">-- Escolha o corte --</option>
-          <option value="degrade">Degradê</option>
-          <option value="social">Social</option>
-          <option value="maquina">Máquina</option>
-          <option value="navalhado">Navalhado</option>
-          <option value="americano">Americano</option>
-        </select>
+          <label for="corte-selecionado">Corte desejado:</label>
+          <select id="corte-selecionado" name="corte" required>
+            <option value="">-- Escolha o corte --</option>
+            <option value="Corte Clássico">Corte Clássico</option>
+            <option value="Corte Moderno">Corte Moderno</option>
+            <option value="Corte Retrô">Corte Retrô</option>
+            <option value="Corte Retrô 2">Corte Retrô 2</option>
+            <option value="Corte Retrô 3">Corte Retrô 3</option>
+            <option value="Corte Retrô 4">Corte Retrô 4</option>
+            <option value="Degradê">Degradê</option>
+            <option value="Social">Social</option>
+            <option value="Máquina">Máquina</option>
+            <option value="Navalhado">Navalhado</option>
+            <option value="Americano">Americano</option>
+          </select>
 
-        <button type="submit">Agendar</button>
-      </form>
-
+          <button type="submit">Confirmar Agendamento</button>
+        </form>
+      </div>
     </div>
-  </section>
+  </div>
 
   <!-- ======= RODAPÉ ======= -->
   <footer class="rodape">
