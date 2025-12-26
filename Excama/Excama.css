@@ -9,7 +9,7 @@ body {
 /* ====== Cabeçalho ====== */
 header {
   position: relative;
-  padding: 40px 20px;
+  padding: 25px 20px;
   border-top: 3px solid #d4af37;
   border-bottom: 2px solid #d4af37;
   color: #fff;
@@ -600,9 +600,13 @@ header::before {
 
 /* Telas até 480px (celulares menores) */
 @media (max-width: 480px) {
+  header {
+    padding: 15px 10px;
+  }
+
   .profile-image {
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
   }
 
   .input-busca.visivel {
@@ -616,7 +620,22 @@ header::before {
   }
 
   .corte {
-    width: 90vw;
+    width: 46%;
+    max-width: none;
+    border-radius: 10px;
+  }
+
+  .corte img {
+    height: 150px;
+  }
+
+  .corte p {
+    font-size: 11px;
+    padding: 8px;
+  }
+
+  .estrela {
+    font-size: 14px;
   }
 
   .agendamento {
@@ -625,11 +644,15 @@ header::before {
   }
 
   .info h1 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .info .endereco {
-    font-size: 12px;
+    font-size: 11px;
+  }
+
+  .fotos-cortes {
+    gap: 8px;
   }
 }
 
