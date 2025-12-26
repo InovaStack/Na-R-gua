@@ -72,33 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Busca
-  const btnLupa = document.querySelector(".btn-lupa");
-  const inputBusca = document.querySelector(".input-busca");
 
-  btnLupa.addEventListener("click", (event) => {
-    event.stopPropagation();
-    inputBusca.classList.toggle("visivel");
-    if (inputBusca.classList.contains("visivel")) {
-      inputBusca.focus();
-    }
-  });
-
-  document.addEventListener("click", () => {
-    if (inputBusca.classList.contains("visivel")) {
-      inputBusca.classList.remove("visivel");
-    }
-  });
-
-  inputBusca.addEventListener("click", (e) => e.stopPropagation());
-
-  inputBusca.addEventListener("input", () => {
-    const termo = inputBusca.value.toLowerCase();
-    cortes.forEach((corte) => {
-      const nome = corte.dataset.nome.toLowerCase();
-      corte.style.display = nome.includes(termo) ? "" : "none";
-    });
-  });
 
   // Filtro
   const btnFiltro = document.querySelector(".btn-filtro");

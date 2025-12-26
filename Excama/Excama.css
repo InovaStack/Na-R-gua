@@ -378,29 +378,7 @@ header::before {
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
 }
 
-/* Input de busca inicialmente escondido e zero largura */
-.input-busca {
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  color: #111;
-  background-color: #fff;
-  border: 2px solid #d4af37;
-  border-radius: 12px;
-  padding: 6px 10px;
-  width: 0;
-  opacity: 0;
-  transition: width 0.4s ease, opacity 0.4s ease;
-  outline: none;
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
-  box-sizing: border-box;
-  cursor: text;
-}
 
-/* Quando visível, tem largura e fica opaco */
-.input-busca.visivel {
-  width: 160px;
-  opacity: 1;
-}
 
 .filtro-menu {
   position: absolute;
@@ -590,21 +568,7 @@ header::before {
     font-size: 16px;
   }
 
-  .busca-wrapper {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    position: relative;
-  }
 
-  .input-busca.visivel {
-    width: 140px;
-    position: absolute;
-    right: 45px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 101;
-  }
 
   .galeria {
     max-width: 100%;
@@ -669,9 +633,7 @@ header::before {
     height: 90px;
   }
 
-  .input-busca.visivel {
-    width: 100px;
-  }
+
 
   .btn-icone {
     width: 32px;
