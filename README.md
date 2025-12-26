@@ -1,10 +1,10 @@
-# 🚀 Na Régua - Plataforma de Agendamento para Barbearias
+# 🚀 Flowcorte - Plataforma de Agendamento para Barbearias
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR-BADGE-ID/deploy-status)](https://app.netlify.com/sites/YOUR-SITE-NAME/deploys)
 
 ## 📋 Sobre o Projeto
 
-**Na Régua** é uma plataforma web moderna para agregação e gerenciamento de barbearias, permitindo que clientes visualizem serviços, façam agendamentos e avaliem cortes.
+**Flowcorte** é uma plataforma web moderna para agregação e gerenciamento de barbearias, permitindo que clientes visualizem serviços, façam agendamentos e avaliem cortes.
 
 ### ✨ Funcionalidades
 
@@ -112,7 +112,7 @@ git commit -m "Initial commit"
 
 3. **Conecte ao repositório:**
 ```bash
-git remote add origin https://github.com/seu-usuario/na-regua.git
+git remote add origin https://github.com/seu-usuario/flowcorte.git
 git branch -M main
 git push -u origin main
 ```
@@ -209,7 +209,7 @@ Abra `index.html` diretamente no navegador.
 ## 📁 Estrutura do Projeto
 
 ```
-Na Régua Beta 1.1/
+Flowcorte Beta 1.1/
 ├── netlify/
 │   └── functions/          # Serverless functions
 │       ├── cadastrar.js    # API de cadastro

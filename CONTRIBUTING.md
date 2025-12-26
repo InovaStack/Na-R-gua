@@ -1,6 +1,6 @@
-# 🤝 Contribuindo para o Na Régua
+# 🤝 Contribuindo para o Flowcorte
 
-Obrigado por considerar contribuir para o **Na Régua**! 
+Obrigado por considerar contribuir para o **Flowcorte**! 
 
 ## 📋 Como Contribuir
 
@@ -9,8 +9,8 @@ Clique no botão "Fork" no canto superior direito da página do repositório.
 
 ### 2. Clone seu Fork
 ```bash
-git clone https://github.com/SEU-USUARIO/na-regua.git
-cd na-regua
+git clone https://github.com/SEU-USUARIO/flowcorte.git
+cd flowcorte
 ```
 
 ### 3. Crie uma Branch

@@ -1,11 +1,11 @@
 # ============================================
 # SCRIPT DE INICIALIZAÇÃO GIT + GITHUB
-# Projeto: Na Régua
+# Projeto: Flowcorte
 # ============================================
 
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "   INICIALIZAÇÃO GIT + GITHUB" -ForegroundColor Cyan
-Write-Host "   Projeto: Na Régua v1.1.0" -ForegroundColor Cyan
+Write-Host "   Projeto: Flowcorte v1.1.0" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -83,7 +83,7 @@ Write-Host ""
 
 # Fazer commit inicial
 Write-Host "Fazendo commit inicial..." -ForegroundColor Yellow
-git commit -m "feat: initial commit - projeto Na Régua v1.1.0 com Netlify e Supabase"
+git commit -m "feat: initial commit - projeto Flowcorte v1.1.0 com Netlify e Supabase"
 if ($LASTEXITCODE -eq 0) {
     Write-Host "✅ Commit realizado" -ForegroundColor Green
 } else {
@@ -111,7 +111,7 @@ $temRepo = Read-Host "Já criou o repositório? (s/N)"
 if ($temRepo -eq "s" -or $temRepo -eq "S") {
     Write-Host ""
     Write-Host "Digite a URL do repositório:" -ForegroundColor Yellow
-    Write-Host "Exemplo: https://github.com/seu-usuario/na-regua.git" -ForegroundColor Cyan
+    Write-Host "Exemplo: https://github.com/seu-usuario/flowcorte.git" -ForegroundColor Cyan
     $repoUrl = Read-Host "URL"
     
     if ($repoUrl) {
@@ -166,7 +166,7 @@ if ($temRepo -eq "s" -or $temRepo -eq "S") {
     Write-Host "========================================" -ForegroundColor Yellow
     Write-Host ""
     Write-Host "1. Acesse: https://github.com/new" -ForegroundColor Cyan
-    Write-Host "2. Nome do repositório: na-regua" -ForegroundColor White
+    Write-Host "2. Nome do repositório: flowcorte" -ForegroundColor White
     Write-Host "3. NÃO adicione README, .gitignore ou license" -ForegroundColor White
     Write-Host "4. Clique em 'Create repository'" -ForegroundColor White
     Write-Host ""

@@ -1,6 +1,6 @@
 -- ============================================
 -- SCRIPT DE CONFIGURAÇÃO DO SUPABASE
--- Projeto: Na Régua - Plataforma de Barbearias
+-- Projeto: Flowcorte - Plataforma de Barbearias
 -- ============================================
 
 -- ============================================

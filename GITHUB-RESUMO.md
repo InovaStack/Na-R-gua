@@ -1,4 +1,4 @@
-# ✅ PROJETO PRONTO PARA O GITHUB!
+# ✅ PROJETO PRONTO PARA O GITHUB! (Flowcorte)
 
 ## 🎉 ARQUIVOS CRIADOS
 
@@ -85,7 +85,7 @@ git push -u origin main
 ## 📊 ESTRUTURA FINAL DO PROJETO
 
 ```
-Na Régua Beta 1.1/
+Flowcorte Beta 1.1/
 ├── .github/
 │   ├── workflows/
 │   │   └── netlify-deploy.yml      # Deploy automático
@@ -290,7 +290,7 @@ Seu projeto está **100% PRONTO** para o GitHub! 🚀
 ---
 
 **Desenvolvido por:** Lucas Pedro - InovaStack  
-**Projeto:** Na Régua v1.1.0  
+**Projeto:** Flowcorte v1.1.0  
 **Data:** 25 de Dezembro de 2025
 
 ---

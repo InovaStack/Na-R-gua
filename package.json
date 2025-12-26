@@ -1,7 +1,7 @@
 {
-  "name": "na-regua",
+  "name": "flowcorte",
   "version": "1.1.0",
-  "description": "Plataforma de agendamento para barbearias",
+  "description": "Flowcorte - Plataforma de agendamento para barbearias",
   "main": "index.html",
   "scripts": {
     "dev": "netlify dev",

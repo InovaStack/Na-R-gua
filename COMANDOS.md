@@ -1,4 +1,4 @@
-# 🛠️ COMANDOS ÚTEIS - NA RÉGUA
+# 🛠️ COMANDOS ÚTEIS - FLOWCORTE
 
 ## 📦 Instalação
 
@@ -107,7 +107,7 @@ git add .
 git commit -m "Deploy inicial com Netlify e Supabase"
 
 # Adicionar remote
-git remote add origin https://github.com/seu-usuario/na-regua.git
+git remote add origin https://github.com/seu-usuario/flowcorte.git
 
 # Push
 git push -u origin main

@@ -1,4 +1,4 @@
-# 📝 RESUMO DAS MODIFICAÇÕES - DEPLOY NETLIFY + SUPABASE
+# 📝 RESUMO DAS MODIFICAÇÕES - FLOWCORTE (NETLIFY + SUPABASE)
 
 ## ✅ O QUE FOI FEITO
 
@@ -253,7 +253,7 @@ Antes de fazer deploy, verifique:
 
 ---
 
-**Projeto:** Na Régua Beta 1.1  
+**Projeto:** Flowcorte Beta 1.1  
 **Desenvolvedor:** Lucas Pedro - InovaStack  
 **Data:** Dezembro 2025  
 **Versão:** 1.1.0 (Netlify + Supabase)

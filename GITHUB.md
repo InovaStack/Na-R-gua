@@ -1,4 +1,4 @@
-# 🚀 GUIA COMPLETO: ADICIONAR PROJETO AO GITHUB
+# 🚀 GUIA COMPLETO: ADICIONAR PROJETO AO GITHUB (Flowcorte)
 
 ## 📋 Pré-requisitos
 
@@ -16,7 +16,7 @@
 2. Clique no botão **"+"** no canto superior direito
 3. Selecione **"New repository"**
 4. Preencha:
-   - **Repository name:** `na-regua`
+   - **Repository name:** `flowcorte`
    - **Description:** `Plataforma de agendamento para barbearias`
    - **Visibility:** Public (ou Private, se preferir)
    - ❌ **NÃO** marque "Add a README file"
@@ -30,7 +30,7 @@ Abra o PowerShell/Terminal e execute:
 
 ```powershell
 # Navegar até a pasta do projeto
-cd "d:\Arquivos\Projetos em andamentos\Na régua\Na Régua Beta 1.1"
+cd "d:\Arquivos\Projetos em andamentos\Na régua\Flowcorte Beta 1.1"
 
 # Configurar seu nome (se ainda não configurou)
 git config --global user.name "Seu Nome"
@@ -73,7 +73,7 @@ git branch -M main
 
 # Adicionar repositório remoto
 # SUBSTITUA 'SEU-USUARIO' pelo seu username do GitHub
-git remote add origin https://github.com/SEU-USUARIO/na-regua.git
+git remote add origin https://github.com/SEU-USUARIO/flowcorte.git
 
 # Verificar se foi adicionado
 git remote -v
@@ -128,7 +128,7 @@ gh auth login
 
 ```powershell
 # Navegar até a pasta
-cd "d:\Arquivos\Projetos em andamentos\Na régua\Na Régua Beta 1.1"
+cd "d:\Arquivos\Projetos em andamentos\Na régua\Flowcorte Beta 1.1"
 
 # Inicializar Git
 git init
@@ -301,7 +301,7 @@ git branch -d feature/minha-feature
 ### Erro: "fatal: not a git repository"
 ```powershell
 # Certifique-se de estar na pasta correta
-cd "d:\Arquivos\Projetos em andamentos\Na régua\Na Régua Beta 1.1"
+cd "d:\Arquivos\Projetos em andamentos\Na régua\Flowcorte Beta 1.1"
 
 # Inicialize o git
 git init
@@ -313,7 +313,7 @@ git init
 git remote remove origin
 
 # Adicionar novamente
-git remote add origin https://github.com/SEU-USUARIO/na-regua.git
+git remote add origin https://github.com/SEU-USUARIO/flowcorte.git
 ```
 
 ### Erro: "Authentication failed"
@@ -390,7 +390,7 @@ Após adicionar ao GitHub:
 ---
 
 **Desenvolvido por Lucas Pedro - InovaStack**  
-**Projeto: Na Régua v1.1.0**  
+**Projeto: Flowcorte v1.1.0**  
 **Data: Dezembro 2025**
 
 🚀 **Boa sorte com seu projeto no GitHub!**

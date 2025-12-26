@@ -1,6 +1,6 @@
 {
-  "name": "Na Régua",
-  "short_name": "Na Régua",
+  "name": "Flowcorte",
+  "short_name": "Flowcorte",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#000000",
@@ -20,7 +20,3 @@
     }
   ]
 }
-
-
-
-
