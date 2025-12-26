@@ -4,18 +4,33 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Barlow', sans-serif;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary-gold: #f0c040;
+  --dark-bg: #111111;
+  --card-bg: #1a1a1a;
+  --hover-gold: #d4af37;
+  --text-white: #ffffff;
+  --text-gray: #bbbbbb;
+  --premium-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.7),
+    0 4px 6px -2px rgba(0, 0, 0, 0.5);
+  --gold-glow: 0 0 15px rgba(240, 192, 64, 0.3);
 }
 
 /* Estilo geral do corpo */
 body {
-  background-color: #111111;
-  color: #ffffff;
-  line-height: 1.6;
+  background-color: var(--dark-bg);
+  color: var(--text-white);
+  line-height: 1.7;
+  overflow-x: hidden;
 }
 
 a {
-  color: #f0c040;
+  color: var(--primary-gold);
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 /* Centralização padrão de conteúdo */
@@ -25,385 +40,321 @@ a {
   padding: 0 2rem;
 }
 
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ============================
    CABEÇALHO COM IMAGEM DE FUNDO
 =============================== */
 header {
   position: relative;
   background: url('../assets/fundo header.jpg.png') no-repeat center center/cover;
-  padding: 85px 0;
+  padding: 100px 0;
   z-index: 1;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-/* Camada escura por cima da imagem */
+/* Camada escura com gradiente */
 header::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(17, 17, 17, 1) 100%);
   z-index: -1;
 }
 
-/* Flexbox no cabeçalho */
 header .container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-/* Logo (recomendo adicionar texto ou imagem) */
-.logo {
-  text-align: left;
-  font-size: 2.5rem;
-  color: #f0c040;
-  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-out forwards;
 }
 
 /* ============================
-   BOTÃO DE LOGIN
+   BOTÃO DE LOGIN (Premium Style)
 =============================== */
 .btn-login {
   position: absolute;
-  top: 20px;
-  right: 80px;
+  top: 30px;
+  right: 5%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  background: transparent;
-  border: 2px solid #f0c040;
-  color: #f0c040;
-  padding: 8px 12px;
+  background: rgba(240, 192, 64, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(240, 192, 64, 0.3);
+  color: var(--primary-gold);
+  padding: 10px 20px;
   font-weight: 700;
-  font-size: 0.75rem;
-  border-radius: 20px;
+  font-size: 0.85rem;
+  border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 0 6px rgba(240, 192, 64, 0.4);
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+  box-shadow: var(--gold-glow);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   user-select: none;
-  gap: 4px;
-  width: 60px;
-  z-index: 10;
+  gap: 10px;
+  z-index: 100;
 }
 
 .btn-login svg {
-  width: 32px;
-  height: 32px;
-  fill: #f0c040;
-  pointer-events: none;
+  width: 20px;
+  height: 20px;
+  fill: var(--primary-gold);
 }
 
 .btn-login span {
-  font-size: 0.65rem;
-  letter-spacing: 1px;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  line-height: 1;
 }
 
 .btn-login:hover {
-  background-color: #f0c040;
+  background-color: var(--primary-gold);
   color: #111;
-  box-shadow: 0 0 12px rgba(240, 192, 64, 0.8);
-  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(240, 192, 64, 0.6);
+  transform: scale(1.05);
+  border-color: var(--primary-gold);
 }
 
-.btn-login:active {
-  transform: translateY(1px);
-  box-shadow: 0 0 6px rgba(240, 192, 64, 0.6);
+.btn-login:hover svg {
+  fill: #111;
 }
 
-/* Nome do usuário abaixo do botão */
+/* Nome do usuário */
 #nomeUsuario {
   position: absolute;
-  top: 85px;
-  right: 80px;
-  width: 60px;
-  text-align: center;
-  color: gold;
-  font-weight: bold;
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.75rem;
-  user-select: none;
+  top: 80px;
+  right: 5%;
+  color: var(--hover-gold);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fadeIn 0.8s ease-out forwards;
 }
 
 /* ============================
    SEÇÃO DE BARBEARIAS
 =============================== */
 .barbearias {
-  background-color: #1a1a1a;
-  padding: 50px 0;
-  color: #f0c040;
+  background-color: var(--dark-bg);
+  padding: 80px 0;
+  color: var(--primary-gold);
 }
 
 .barbearias h2 {
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 2rem;
-  font-weight: 700;
+  margin-bottom: 60px;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, #fff, var(--primary-gold), #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1s ease-out;
 }
 
 .barbearias .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Cada card de barbearia */
+/* Cada card de barbearia (Premium Glass) */
 .barbearias .card {
-  background-color: #222;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(240, 192, 64, 0.3);
-  padding: 20px;
+  background-color: var(--card-bg);
+  border: 1px solid rgba(240, 192, 64, 0.1);
+  border-radius: 20px;
+  padding: 35px 25px;
   text-align: center;
-  color: #f0c040;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.barbearias .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: 0.5s;
+}
+
+.barbearias .card:hover::before {
+  left: 100%;
 }
 
 .barbearias .card img {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 15px;
-  box-shadow: 0 0 10px rgba(240, 192, 64, 0.5);
+  margin-bottom: 25px;
+  border: 3px solid var(--primary-gold);
+  box-shadow: 0 0 20px rgba(240, 192, 64, 0.2);
+  transition: transform 0.5s ease;
 }
 
 .barbearias .card h3 {
-  margin-bottom: 10px;
-  font-size: 1.3rem;
+  margin-bottom: 12px;
+  font-size: 1.5rem;
   font-weight: 700;
+  color: #fff;
 }
 
 .barbearias .card p {
-  font-size: 0.9rem;
-  color: #ddd;
+  font-size: 1rem;
+  color: var(--text-gray);
+  margin-bottom: 20px;
   flex-grow: 1;
 }
 
 .barbearias .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(240, 192, 64, 0.7);
-  color: #fff;
+  transform: translateY(-15px);
+  background-color: #222;
+  border-color: var(--primary-gold);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(240, 192, 64, 0.2);
+}
+
+.barbearias .card:hover img {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ============================
+   SEÇÃO SOBRE (Refined)
+=============================== */
+.sobre {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--dark-bg) 0%, #1a1a1a 100%);
+  border-top: 1px solid rgba(240, 192, 64, 0.1);
+}
+
+.sobre-titulo {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: var(--primary-gold);
+  text-align: center;
+  font-weight: 800;
+}
+
+.sobre-texto {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  color: var(--text-gray);
+}
+
+/* ============================
+   BOTÃO DO INSTAGRAM (Premium)
+=============================== */
+.instagram-button {
+  display: flex;
+  justify-content: center;
+}
+
+.instagram-button a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(240, 192, 64, 0.1);
+  border: 1px solid var(--primary-gold);
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-gold);
+  box-shadow: var(--gold-glow);
+}
+
+.instagram-button a:hover {
+  background: var(--primary-gold);
+  color: #111;
+  transform: rotate(15deg) scale(1.1);
+  box-shadow: 0 0 30px rgba(240, 192, 64, 0.5);
 }
 
 /* ============================
    RODAPÉ
 =============================== */
-
 footer {
-  padding: 15px 0 8px;
-  font-size: 14px;
-  line-height: 1.3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #111;
-  color: #ccc;
-}
-
-.footer-container {
-  width: 100%;
-  max-width: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 8px;
-}
-
-.rodape-nome {
-  font-size: 14px;
-  color: #888;
-  line-height: 1.1;
+  padding: 50px 0 30px;
+  background-color: #0c0c0c;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
-  width: 100%;
-  margin-top: 4px;
+}
+
+.footer-container p {
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--text-gray);
 }
 
 /* ============================
-   SEÇÃO SOBRE
+   RESPONSIVIDADE (Mobile tweaks)
 =============================== */
-.sobre-titulo {
-  font-size: 22px;
-  line-height: 1.2;
-  color: #f0c040;
-  text-align: center;
-  margin: 0 0 5px 0;
-  font-weight: 700;
-}
-
-.sobre-texto {
-  font-size: 16px;
-  line-height: 1.5;
-  text-align:center;
-  max-width: 1100px;
-  color: #ddd;
-  margin: 0 0 1px 0;
-}
-
-.sobre-texto {
-  margin-left: 120px; /* afasta o texto da esquerda */
-}
-
-/* ============================
-   BOTÃO DO INSTAGRAM
-=============================== */
-.instagram-button {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 0;
-  margin-bottom: 6px;
-}
-
-.instagram-button a {
-  width: 35px;
-  height: 35px;
-  border-width: 1px;
-  font-size: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #d4af37;
-  transition: opacity 0.3s ease;
-}
-
-.instagram-button a:hover {
-  opacity: 0.7;
-}
-
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   header {
-    padding: 40px 0;
-    position: relative;
-  }
-
-  header .container {
-    display: block; /* para não atrapalhar posicionamento absoluto */
+    padding: 60px 0;
   }
 
   .btn-login {
-    position: absolute;
-    top: 10px;
+    top: 20px;
     right: 20px;
-    width: auto;
-    padding: 6px 10px;
-    font-size: 0.7rem;
-    flex-direction: row;
-    gap: 6px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
+    padding: 8px 15px;
   }
 
-  .btn-login svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .btn-login span {
-    font-size: 0.75rem;
-  }
-
-  #nomeUsuario {
-    position: absolute;
-    top: 45px;
-    right: 20px;
-    font-size: 0.75rem;
-    color: gold;
-    text-align: center;
-    width: 60px;
-  }
-
-  .container {
-    padding: 0 1rem;
-    max-width: 100%;
-  }
-
-  h2, h3, .sobre-titulo {
-    text-align: center;
-    padding: 0 10px;
-    font-weight: 700;
-  }
-
-  h2 {
-    font-size: 1.6rem;
-    margin-bottom: 30px;
-  }
-
-  h3 {
-    font-size: 1.2rem;
+  .barbearias h2 {
+    font-size: 2rem;
   }
 
   .sobre-texto {
-    font-size: 14px;
-    max-width: 100%;
-    margin-left: 0;
-    padding: 0 10px;
-    text-align: center;
-  }
-
-  .barbearias .cards {
-    grid-template-columns: 1fr !important;
-    gap: 15px;
-    padding: 0 10px;
-  }
-
-  .barbearias .card {
-    padding: 15px;
-  }
-
-  .barbearias .card img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
-  }
-
-  .barbearias .card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 6px;
-  }
-
-  .barbearias .card p {
-    font-size: 0.85rem;
-  }
-
-  section {
-    padding: 30px 0 20px;
-  }
-
-  footer {
-    padding: 15px 10px;
-    font-size: 12px;
-  }
-
-  .footer-container {
-    max-width: 100%;
-  }
-
-  .rodape-nome {
-    font-size: 12px;
-  }
-
-  .instagram-button a {
-    width: 28px;
-    height: 28px;
-    font-size: 16px;
+    padding: 0 20px;
   }
 }
 
+@media (max-width: 480px) {
+  .btn-login span {
+    display: none;
+  }
 
+  .btn-login {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    justify-content: center;
+  }
 
-
-
-
-
+  #nomeUsuario {
+    top: 75px;
+    right: 20px;
+    font-size: 0.7rem;
+  }
+}
