@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,11 +9,18 @@
   <link rel="icon" href="icons/web-app-manifest-192x192.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
 
   <!-- ======= CABEÇALHO / PERFIL ======= -->
   <header>
     <div class="profile-container">
+
+      <!-- Botão Menu Lateral -->
+      <button class="btn-icone btn-menu-toggle" title="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
 
       <!-- Imagem de perfil da barbearia -->
       <img src="../Excama/assets/logo-excama.jpeg" alt="Perfil da Barbearia" class="profile-image" />
@@ -23,7 +31,8 @@
         <p class="endereco">Loteamento prolar N°893 Rua do Cruzeiro</p>
         <div class="social-links">
           <a href="https://www.instagram.com/excama_cortes" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://chat.whatsapp.com/FI7RHEkQnDULhDTgDh0CDf?mode=ac_t" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://chat.whatsapp.com/FI7RHEkQnDULhDTgDh0CDf?mode=ac_t" target="_blank"
+            rel="noopener">WhatsApp</a>
         </div>
       </div>
 
@@ -62,25 +71,12 @@
       <!-- Container do mapa (inicia oculto) -->
       <div id="mapa-container" class="mapa-container hidden">
         <!-- Iframe do Google Maps mostrando a localização da barbearia -->
-        <iframe
-          id="iframe-mapa"
-          width="100%"
-          height="200"
-          frameborder="0"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+        <iframe id="iframe-mapa" width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen=""
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         <!-- Botão que abre o Google Maps em nova aba com rota para a barbearia -->
-        <a
-          href="https://maps.app.goo.gl/Vz9Ui7VAPAPVtEyn8"
-          target="_blank"
-          rel="noopener"
-          id="btn-rota"
-          class="btn-rota"
-        >
+        <a href="https://maps.app.goo.gl/Vz9Ui7VAPAPVtEyn8" target="_blank" rel="noopener" id="btn-rota"
+          class="btn-rota">
           Ver rota no Google Maps
         </a>
       </div>
@@ -178,30 +174,30 @@
     <div class="agendamento">
       <h2>Agende seu horário</h2>
       <form id="form-agendamento">
-  <label for="data">Data:</label>
-  <input type="date" id="data" name="data" required />
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required />
 
-  <label for="hora">Hora:</label>
-  <input type="time" id="hora" name="hora" required />
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required />
 
-  <label for="nome">Nome:</label>
-  <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
 
-  <label for="telefone">Telefone:</label>
-  <input type="tel" id="telefone" name="telefone" placeholder="(81) 98765-4321" maxlength="15" required />
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(81) 98765-4321" maxlength="15" required />
 
-  <label for="corte">Selecione o corte desejado:</label>
-  <select id="corte" name="corte" required>
-    <option value="">-- Escolha o corte --</option>
-    <option value="degrade">Degradê</option>
-    <option value="social">Social</option>
-    <option value="maquina">Máquina</option>
-    <option value="navalhado">Navalhado</option>
-    <option value="americano">Americano</option>
-  </select>
+        <label for="corte">Selecione o corte desejado:</label>
+        <select id="corte" name="corte" required>
+          <option value="">-- Escolha o corte --</option>
+          <option value="degrade">Degradê</option>
+          <option value="social">Social</option>
+          <option value="maquina">Máquina</option>
+          <option value="navalhado">Navalhado</option>
+          <option value="americano">Americano</option>
+        </select>
 
-  <button type="submit">Agendar</button>
-</form>
+        <button type="submit">Agendar</button>
+      </form>
 
     </div>
   </section>
@@ -214,11 +210,5 @@
   <!-- Script externo -->
   <script src="../Excama/Excama.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
