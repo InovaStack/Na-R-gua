@@ -1,5 +1,15 @@
 const btnLogin = document.querySelector('.btn-login');
 const nomeUsuarioDiv = document.getElementById('nomeUsuario');
+const loadingScreen = document.getElementById('loading-screen');
+
+// Esconder loading screen após o carregamento
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    if (loadingScreen) {
+      loadingScreen.classList.add('hidden');
+    }
+  }, 2000); // 2 segundos para dar tempo de ver a animação premium
+});
 
 function atualizarInterface() {
   const usuario = localStorage.getItem('nomeUsuario');
